@@ -55,15 +55,19 @@ class App extends Component {
       .catch(err => console.log("An error occurred: ", err));
   }
 
+  onRouteChange = (route) => {
+    this.setState({route: route});
+  }
+
   render() {
     return (
       <div className="tc">
         <Particles className='particles'
           params={particlesOptions} />
 
-        <Navigation route={this.state.route}/>
+        <Navigation route={this.state.route} onRouteChange={this.onRouteChange}/>
         <div className='mainDiv'>
-          {this.state.route === 'signin' ? <SignIn/> : 
+          {this.state.route === 'signin' ? <SignIn onRouteChange={this.onRouteChange}/> : 
             <div>
             <Rank />
               <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit}/>
