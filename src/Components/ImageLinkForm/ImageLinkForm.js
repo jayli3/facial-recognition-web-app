@@ -5,7 +5,7 @@ const ImageLinkForm = (props) => {
 	const {onInputChange, onSubmit} = props;
 	return(
 		<div className='pa3'>
-			<p className='f3 dark-gray fw5'>
+			<p className='f3 dark-gray fw6'>
 				{'Harry Potter will detect faces in your pictures. It\'s like magic!'}
 			</p>
 			<div className='form pa4 center br3 shadow-5'>

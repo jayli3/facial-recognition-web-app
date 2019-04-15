@@ -61,9 +61,9 @@ class App extends Component {
         <Particles className='particles'
           params={particlesOptions} />
 
-        <Navigation />
+        <Navigation route={this.state.route}/>
         <div className='mainDiv'>
-          {this.state.route === 'signin' ? <SignIn /> : 
+          {this.state.route === 'signin' ? <SignIn/> : 
             <div>
             <Rank />
               <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit}/>

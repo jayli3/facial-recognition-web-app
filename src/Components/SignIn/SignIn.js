@@ -3,11 +3,11 @@ import React from 'react';
 const SignIn = (props) => {
 	const {} = props;
 	return(
-		<article className="br3 ba shadow-5 dark-gray b--black-10 bg-white o-80 mv4 w-100 w-50-m w-25-l mw6 center">
+		<article className="signIn br3 ba shadow-5 dark-gray b--black-10 bg-white o-80 w-auto mw6 center">
 			<main className="pa4 black-80">
 			  <form className="measure">
 			    <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-			      <legend className="f1 fw6 ph0 mh0">Sign In</legend>
+			      <legend className="f1 fw6 ph0 mh0" style={{'whiteSpace': 'nowrap'}}>Sign In</legend>
 			      <div className="mt3">
 			        <label className="db fw6 lh-copy f6" for="email-address">Email</label>
 			        <input className="pa2 br2 input-reset ba bg-transparent hover-bg-dark-gray hover-white w-100" type="email" name="email-address"  id="email-address"/>
