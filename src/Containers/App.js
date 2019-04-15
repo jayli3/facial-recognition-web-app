@@ -3,6 +3,7 @@ import Navigation from '../Components/Navigation/Navigation';
 import ImageLinkForm from '../Components/ImageLinkForm/ImageLinkForm';
 import Rank from '../Components/Rank/Rank';
 import FaceRecognition from '../Components/FaceRecognition/FaceRecognition';
+import SignIn from '../Components/SignIn/SignIn';
 import Particles from 'react-particles-js';
 import './App.css';
 import particlesOptions from './particlesjs-config';
@@ -17,7 +18,8 @@ class App extends Component {
     this.state = {
       input: '',
       image_url: '',
-      box: {}
+      box: {},
+      route: 'signin'
     }
   }
 
@@ -61,9 +63,13 @@ class App extends Component {
 
         <Navigation />
         <div className='mainDiv'>
-          <Rank />
-          <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit}/>
-          <FaceRecognition image_url={this.state.image_url} box={this.state.box}/>
+          {this.state.route === 'signin' ? <SignIn /> : 
+            <div>
+            <Rank />
+              <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit}/>
+              <FaceRecognition image_url={this.state.image_url} box={this.state.box}/>
+            </div>
+          }
         </div>
       </div>
     );

@@ -10,6 +10,7 @@ header{
     align-items: center;
     font-size: 1.1rem;
     box-shadow: 0 0px 1px 0px #602E75;
+    z-index: 30;
 }
 
 header nav{

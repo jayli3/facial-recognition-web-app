@@ -8,7 +8,7 @@ const Navigation = () => {
 			<Logo/>
 			<nav style={{'whiteSpace': 'nowrap'}}>
 				<ul>
-					<li><a href='#'><strong>Sign Out</strong></a></li>
+					<li><a href='#'><strong>Sign In</strong></a></li>
 				</ul>
 			</nav>
 		</header>
