@@ -6,7 +6,7 @@ const Navigation = () => {
 	return(
 		<header>
 			<Logo/>
-			<nav style={{'white-space': 'nowrap'}}>
+			<nav style={{'whiteSpace': 'nowrap'}}>
 				<ul>
 					<li><a href='#'><strong>Sign Out</strong></a></li>
 				</ul>
