@@ -1,10 +1,13 @@
 # facial-recognition-web-app
 Detects faces in an input image and puts a box around it.
 
-## `Libraries Used`
+## Libraries Used
 Tachyons<br>
 React Tilt<br>
 Particles.js
+
+### `API`
+Clarifai: https://clarifai.com/developer/guide/
 
 ##
 To deploy React onto GitHub, refer to: https://codeburst.io/deploy-react-to-github-pages-to-create-an-amazing-website-42d8b09cd4d
