@@ -16,7 +16,7 @@ header nav{
 	margin-right: 20px;
 }
 
-header nav ul{
+header nav ul *{
     display: flex;
     justify-content: space-between;
 }
@@ -26,7 +26,7 @@ header li {
     margin: 20px;
 }
 
-header li a {
+header li p {
     color: #602E75;
     text-decoration: none;
 }
