@@ -22,13 +22,14 @@ header nav ul *{
 }
 
 header li {
-    display: inline;
+    display: flex;
     margin: 20px;
 }
 
 header li p {
     color: #602E75;
     text-decoration: none;
+    white-space: nowrap;
 }
 
 header h2{

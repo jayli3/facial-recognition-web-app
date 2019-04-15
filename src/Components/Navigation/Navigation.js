@@ -7,8 +7,8 @@ const Navigation = (props) => {
 	return(
 		<header className='z-9999'>
 			<Logo/>
-			<nav style={{'whiteSpace': 'nowrap'}}>
-				<ul>
+			<nav>
+				<ul id='navUl'>
 					{isSignedIn ? 
 						<li><p className='dim' onClick={() => onRouteChange('signin')}><strong>Sign Out</strong></p></li> 
 						:

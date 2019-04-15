@@ -43,7 +43,6 @@ class App extends Component {
 
   displayFaceBox = (box) => {
     this.setState({box: box});
-    console.log(box);
   }
 
   onInputChange = (event) => {
@@ -87,7 +86,7 @@ class App extends Component {
               </div>
           : (route === 'signin') ?
               <SignIn onRouteChange={this.onRouteChange}/>
-          : <Register onRouteChange={this.onRouteChange}/>  
+            : <Register onRouteChange={this.onRouteChange}/>  
           }
         </div>
       </div>

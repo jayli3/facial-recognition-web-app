@@ -10,8 +10,19 @@
 .mainDiv{
 	margin-top: 80px;
 	margin-bottom: 60px;
+	margin-right: 1rem;
+	margin-left: 1rem;
 }
 
 .signIn{
 	margin-top: 12rem;
+}
+
+@media screen and (max-width: 540px) {
+    #logoName{
+		display: none;
+	}
+	#formBtn, #formInput{
+		font-size: 0.8rem;
+	}
 }
