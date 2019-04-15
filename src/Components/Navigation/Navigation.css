@@ -1,0 +1,41 @@
+header{
+	height: 80px;
+	top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(89deg, #FFEFFC 0%, #ECF9FB 100%);
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    box-shadow: 0 0px 1px 0px #602E75;
+}
+
+header nav{
+	margin-right: 20px;
+}
+
+header nav ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+header li {
+    display: inline;
+    margin: 20px;
+}
+
+header li a {
+    color: #602E75;
+    text-decoration: none;
+}
+
+header h2{
+    color: #602E75;
+}
+
+header img{
+	margin-left: 40px;
+	height: 70px;
+}
