@@ -21,7 +21,14 @@ class App extends Component {
       image_url: '',
       box: {},
       route: 'signin',
-      isSignedIn: false
+      isSignedIn: false,
+      user: {
+        id: '',
+        name: '',
+        email: '',
+        entries: 0,
+        joined: ''
+      }
     }
   }
 
@@ -46,6 +53,18 @@ class App extends Component {
 
   onInputChange = (event) => {
     this.setState({input: event.target.value});
+  }
+
+  loadUser = (data) => {
+    this.setState({user: 
+      {
+          id: data.id,
+          name: data.name,
+          email: data.email,
+          entries: data.entries,
+          joined: data.joined
+      }
+    });
   }
 
   onSubmit = () => {
@@ -89,8 +108,8 @@ class App extends Component {
                 <FaceRecognition image_url={image_url} box={box}/>
               </div>
           : (route === 'signin') ?
-              <SignIn onRouteChange={this.onRouteChange}/>
-            : <Register onRouteChange={this.onRouteChange}/>  
+              <SignIn onRouteChange={this.onRouteChange} loadUser={this.loadUser}/>
+            : <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser}/>  
           }
         </div>
       </div>

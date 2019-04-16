@@ -3,7 +3,6 @@ import './FaceRecognition.css';
 
 const FaceRecognition = (props) => {
 	const {image_url, box} = props;
-	console.log(box);
 	return(
 		<div className='ph3 center mb3 tc'>
 			<div className='absolute'>
