@@ -19,7 +19,7 @@ class App extends Component {
     this.state = {
       input: '',
       image_url: '',
-      box: {},
+      array_of_boxes: [],
       route: 'signin',
       isSignedIn: false,
       user: {
@@ -33,22 +33,26 @@ class App extends Component {
   }
 
   calculateFaceLocation = (data) => {
-    const array_of_boxes = data.outputs[0].data.regions;
-    const box1 = array_of_boxes[0].region_info.bounding_box;
-
+    const array_of_regions = data.outputs[0].data.regions;
     const image = document.getElementById('inputImage');
     const width = Number(image.width);
     const height = Number(image.height);
-    return {
-      top_row: box1.top_row * height,
-      left_col: box1.left_col * width,
-      bottom_row: height - (box1.bottom_row * height),
-      right_col: width - (box1.right_col * width)
-    }
+
+    const array_of_boxes = array_of_regions.map((region) => {
+      const box = region.region_info.bounding_box;
+      const modified_box = {
+        top_row: box.top_row * height,
+        left_col: box.left_col * width,
+        bottom_row: height - (box.bottom_row * height),
+        right_col: width - (box.right_col * width)
+      }
+      return modified_box;
+    })
+    return array_of_boxes;
   }
 
-  displayFaceBox = (box) => {
-    this.setState({box: box});
+  displayFaceBox = (array_of_boxes) => {
+    this.setState({array_of_boxes: array_of_boxes});
   }
 
   onInputChange = (event) => {
@@ -68,7 +72,8 @@ class App extends Component {
   }
 
   onSubmit = () => {
-    this.setState({box: {}});
+    this.setState({array_of_boxes: []});
+    this.setState({image_url: ''});
     this.setState({image_url: this.state.input});
     app.models.predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
       .then(response => {
@@ -104,7 +109,7 @@ class App extends Component {
   }
 
   render() {
-    const {isSignedIn, image_url, box, route, user} = this.state;
+    const {isSignedIn, image_url, array_of_boxes, route, user} = this.state;
     return (
       <div className="tc">
         <Particles className='particles'
@@ -116,7 +121,7 @@ class App extends Component {
               <div>
               <Rank name={user.name} faces={user.faces}/>
                 <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit}/>
-                <FaceRecognition image_url={image_url} box={box}/>
+                <FaceRecognition image_url={image_url} array_of_boxes={array_of_boxes}/>
               </div>
           : (route === 'signin') ?
               <SignIn onRouteChange={this.onRouteChange} loadUser={this.loadUser}/>

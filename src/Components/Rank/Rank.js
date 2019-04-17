@@ -9,7 +9,7 @@ const Rank = (props) => {
 					<strong>
 						{`Hi ${name}, you've found `}
 						<span className='f3'>{`${faces}`}</span>
-						{` faces so far!`}
+						{` faces in total!`}
 					</strong>
 				</div>
 			</div>
