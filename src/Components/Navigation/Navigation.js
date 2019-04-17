@@ -10,11 +10,11 @@ const Navigation = (props) => {
 			<nav>
 				<ul id='navUl'>
 					{isSignedIn ? 
-						<li><p className='dim' onClick={() => onRouteChange('signin')}><strong>Sign Out</strong></p></li> 
+						<li><p className='pointer dim' onClick={() => onRouteChange('signin')}><strong>Sign Out</strong></p></li> 
 						:
 						<div>
-							<li><p className='dim' onClick={() => onRouteChange('signin')}><strong>Sign In</strong></p></li>
-							<li><p className='dim' onClick={() => onRouteChange('register')}><strong>Register</strong></p></li>
+							<li><p className='pointer dim' onClick={() => onRouteChange('signin')}><strong>Sign In</strong></p></li>
+							<li><p className='pointer dim' onClick={() => onRouteChange('register')}><strong>Register</strong></p></li>
 						</div>
 					}
 				</ul>

@@ -23,6 +23,9 @@ class Register extends React.Component {
 	}
 
 	onSubmissionRegister = () => {
+		if(this.state.registerEmail.length <= 0 || this.state.registerPassword <= 0 || this.state.registerName.length <= 0){
+			return
+		}
 		fetch('http://localhost:3001/register', {
 			method: 'post',
 			headers: {
@@ -38,7 +41,6 @@ class Register extends React.Component {
 			.then(user => {
 				if(user.id){
 					this.props.loadUser(user);
-					this.props.onRouteChange('home')
 				}
 			})
 	}

@@ -18,6 +18,9 @@ class SignIn extends React.Component {
 	}
 
 	onSubmitSignIn = () => {
+		if(this.state.signInEmail.length <= 0 || this.state.signInPassword <= 0){
+			return
+		}
 		fetch('http://localhost:3001/signin', {
 			method: 'post',
 			headers: {
@@ -28,13 +31,23 @@ class SignIn extends React.Component {
 				password: this.state.signInPassword
 			})
 		})
-			.then(resp => resp.json())
-			.then(user => {
-				if (user.id){
-					this.props.loadUser(user);
-					this.props.onRouteChange('home');
-				}
-			})
+		.then(resp => resp.json())
+		.then(user => {
+			if (user.id){
+				this.props.loadUser(user);
+			}
+		}).catch(console.log('error'))
+	}
+
+	onSkipThis = () => {
+		const user = {
+			email: "guess@email.com",
+			faces: 0,
+			id: -1,
+			joined: new Date(),
+			name: "Guest"
+		}
+		this.props.loadUser(user);
 	}
 
 	render(){
@@ -70,6 +83,9 @@ class SignIn extends React.Component {
 				    </div>
 				    <div className="lh-copy mt3">
 				      <p className="f6 dim black db b pointer underline" onClick={() => onRouteChange('register')}>Register</p>
+				    </div>
+				    <div className="lh-copy mt3">
+				      <p className="f6 dim dark-gray bg-near-white br1 db b pointer" onClick={this.onSkipThis}>...Skip This...</p>
 				    </div>
 				  </div>
 				</main>

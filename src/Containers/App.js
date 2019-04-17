@@ -69,6 +69,7 @@ class App extends Component {
           joined: data.joined
       }
     });
+    this.onRouteChange('home');
   }
 
   onSubmit = () => {
@@ -78,18 +79,25 @@ class App extends Component {
     app.models.predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
       .then(response => {
         if(response.outputs[0].data.regions){
-          fetch('http://localhost:3001/image', {
-            method: 'put',
-            headers: {'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              id: this.state.user.id,
-              faces: response.outputs[0].data.regions.length
+          if(this.state.user.id === -1){
+            const faces = response.outputs[0].data.regions.length;
+            this.setState(Object.assign(this.state.user, {faces: this.state.user.faces + faces}));
+            return this.displayFaceBox(this.calculateFaceLocation(response))
+          }
+          else{
+            fetch('http://localhost:3001/image', {
+              method: 'put',
+              headers: {'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                id: this.state.user.id,
+                faces: response.outputs[0].data.regions.length
+              })
             })
-          })
-          .then(res => res.json())
-          .then(faces => this.setState(Object.assign(this.state.user, {faces: faces})));
-          return this.displayFaceBox(this.calculateFaceLocation(response))
+            .then(res => res.json())
+            .then(faces => this.setState(Object.assign(this.state.user, {faces: faces})));
+            return this.displayFaceBox(this.calculateFaceLocation(response))
+          }
         }
       })
       .catch(err => console.log("An error occurred: ", err));
@@ -125,7 +133,7 @@ class App extends Component {
               </div>
           : (route === 'signin') ?
               <SignIn onRouteChange={this.onRouteChange} loadUser={this.loadUser}/>
-            : <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser}/>  
+            : <Register loadUser={this.loadUser}/>  
           }
         </div>
       </div>
