@@ -110,8 +110,21 @@ class App extends Component {
     else if(route === 'signin'){
       this.setState({isSignedIn: false});
     }
-    else{
-      this.setState({isSignedIn: false});
+    else if(route === 'signout'){
+      this.setState({
+        input: '',
+        image_url: '',
+        array_of_boxes: [],
+        route: 'signin',
+        isSignedIn: false,
+        user: {
+          id: '',
+          name: '',
+          email: '',
+          faces: 0,
+          joined: ''
+        }
+      });
     }
     this.setState({route: route});
   }
@@ -131,7 +144,7 @@ class App extends Component {
                 <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit}/>
                 <FaceRecognition image_url={image_url} array_of_boxes={array_of_boxes}/>
               </div>
-          : (route === 'signin') ?
+          : (route === 'signin' || route === 'signout') ?
               <SignIn onRouteChange={this.onRouteChange} loadUser={this.loadUser}/>
             : <Register loadUser={this.loadUser}/>  
           }

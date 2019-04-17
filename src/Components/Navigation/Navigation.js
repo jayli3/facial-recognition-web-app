@@ -10,7 +10,7 @@ const Navigation = (props) => {
 			<nav>
 				<ul id='navUl'>
 					{isSignedIn ? 
-						<li><p className='pointer dim' onClick={() => onRouteChange('signin')}><strong>Sign Out</strong></p></li> 
+						<li><p className='pointer dim' onClick={() => onRouteChange('signout')}><strong>Sign Out</strong></p></li> 
 						:
 						<div>
 							<li><p className='pointer dim' onClick={() => onRouteChange('signin')}><strong>Sign In</strong></p></li>
