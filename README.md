@@ -6,13 +6,13 @@ Tachyons<br>
 React Tilt<br>
 Particles.js<br>
 
-# Warning
+## Warning
 This app is just for demonstration purposes, code hasn't been tidied up, there's minimum validation in place and minimum security implementations.
 
 ### `API`
 Clarifai: https://clarifai.com/developer/guide/
 
-### Server
+## Server & Database
 Server & Database are hosted on Heroku.
 
 ##
