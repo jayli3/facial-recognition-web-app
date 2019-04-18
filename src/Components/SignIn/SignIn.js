@@ -59,7 +59,7 @@ class SignIn extends React.Component {
 				    <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
 				      <legend className="f1 fw6 ph0 mh0" style={{'whiteSpace': 'nowrap'}}>Sign In</legend>
 				      <div className="mt3">
-				        <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
+				        <label className="db fw6 lh-copy f6" htmlFor="email-address">Username</label>
 				        <input 
 					        className="pa2 br2 input-reset ba bg-transparent hover-bg-dark-gray hover-white w-100" 
 					        type="email" 
