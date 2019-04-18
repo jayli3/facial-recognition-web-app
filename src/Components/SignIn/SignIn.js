@@ -36,7 +36,7 @@ class SignIn extends React.Component {
 			if (user.id){
 				this.props.loadUser(user);
 			}
-		}).catch(console.log('error'))
+		}).catch(err => console.log('error'))
 	}
 
 	onSkipThis = () => {

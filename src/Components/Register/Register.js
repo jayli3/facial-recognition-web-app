@@ -42,7 +42,7 @@ class Register extends React.Component {
 				if(user.id){
 					this.props.loadUser(user);
 				}
-			})
+			}).catch(err => console.log('error'))
 	}
 
 	render(){

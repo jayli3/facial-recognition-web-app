@@ -4,7 +4,10 @@ Detects faces in an input image and puts a box around it.
 ## Libraries Used
 Tachyons<br>
 React Tilt<br>
-Particles.js
+Particles.js<br>
+
+# Warning
+This app is just for demonstration purposes, code hasn't been tidied up, there's minimum validation in place and minimum security implementations.
 
 ### `API`
 Clarifai: https://clarifai.com/developer/guide/
