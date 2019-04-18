@@ -12,6 +12,9 @@ This app is just for demonstration purposes, code hasn't been tidied up, there's
 ### `API`
 Clarifai: https://clarifai.com/developer/guide/
 
+### Server
+Server & Database are hosted on Heroku.
+
 ##
 To deploy React onto GitHub, refer to: https://codeburst.io/deploy-react-to-github-pages-to-create-an-amazing-website-42d8b09cd4d
 
