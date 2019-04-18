@@ -1,4 +1,6 @@
 # facial-recognition-web-app
+Live: https://jayli3.github.io/facial-recognition-web-app/ <br>
+Server Source Code: https://github.com/jayli3/facial-recognition-server <br><br>
 Detects faces in an input image and puts a box around it.
 
 ## Libraries Used

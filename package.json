@@ -2,7 +2,9 @@
   "name": "facial-recognition-web-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jayli3.github.io/facial-recognition-web-app/",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-particles-js": "^2.6.0",
@@ -15,6 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
