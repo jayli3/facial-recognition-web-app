@@ -16,7 +16,11 @@ const app = new Clarifai.App({apiKey: CLARIFAI_API_KEY});
 class App extends Component {
   constructor() {
     super();
-    this.state = {
+    this.state = this.initialState();
+  }
+
+  initialState = () => {
+    return {
       input: '',
       image_url: '',
       array_of_boxes: [],
@@ -95,7 +99,8 @@ class App extends Component {
               })
             })
             .then(res => res.json())
-            .then(faces => this.setState(Object.assign(this.state.user, {faces: faces})));
+            .then(faces => this.setState(Object.assign(this.state.user, {faces: faces})))
+            .catch(err => console.log("Error occurred."));
             return this.displayFaceBox(this.calculateFaceLocation(response))
           }
         }
@@ -111,20 +116,7 @@ class App extends Component {
       this.setState({isSignedIn: false});
     }
     else if(route === 'signout'){
-      this.setState({
-        input: '',
-        image_url: '',
-        array_of_boxes: [],
-        route: 'signin',
-        isSignedIn: false,
-        user: {
-          id: '',
-          name: '',
-          email: '',
-          faces: 0,
-          joined: ''
-        }
-      });
+      this.setState(this.initialState());
     }
     this.setState({route: route});
   }
