@@ -8,10 +8,6 @@ import Register from '../Components/Register/Register';
 import Particles from 'react-particles-js';
 import './App.css';
 import particlesOptions from './particlesjs-config';
-import Clarifai from 'clarifai';
-
-const CLARIFAI_API_KEY = '7753a1a4e42b42709100728dd5840d4d';
-const app = new Clarifai.App({apiKey: CLARIFAI_API_KEY});
 
 class App extends Component {
   constructor() {
@@ -26,6 +22,7 @@ class App extends Component {
       array_of_boxes: [],
       route: 'signin',
       isSignedIn: false,
+      loading: false,
       user: {
         id: '',
         name: '',
@@ -56,11 +53,13 @@ class App extends Component {
   }
 
   displayFaceBox = (array_of_boxes) => {
+    this.setState({loading: false});
     this.setState({array_of_boxes: array_of_boxes});
   }
 
   onInputChange = (event) => {
     this.setState({input: event.target.value});
+    this.setState({loading: false});
   }
 
   loadUser = (data) => {
@@ -80,32 +79,49 @@ class App extends Component {
     this.setState({array_of_boxes: []});
     this.setState({image_url: ''});
     this.setState({image_url: this.state.input});
-    app.models.predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
-      .then(response => {
-        if(response.outputs[0].data.regions){
-          if(this.state.user.id === -1){
-            const faces = response.outputs[0].data.regions.length;
-            this.setState(Object.assign(this.state.user, {faces: this.state.user.faces + faces}));
-            return this.displayFaceBox(this.calculateFaceLocation(response))
-          }
-          else{
-            fetch('http://localhost:3001/image', {
-              method: 'put',
-              headers: {'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({
-                id: this.state.user.id,
-                faces: response.outputs[0].data.regions.length
-              })
-            })
-            .then(res => res.json())
-            .then(faces => this.setState(Object.assign(this.state.user, {faces: faces})))
-            .catch(err => console.log("Error occurred."));
-            return this.displayFaceBox(this.calculateFaceLocation(response))
-          }
-        }
+    this.setState({loading: true});
+
+    fetch('http://localhost:3001/imageUrl', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        input: this.state.input,
       })
-      .catch(err => console.log("An error occurred: ", err));
+    })
+    .then(response => response.json())
+    .then(response => {
+      if(response.outputs[0].data.regions){
+        if(this.state.user.id === -1){
+          const faces = response.outputs[0].data.regions.length;
+          this.setState(Object.assign(this.state.user, {faces: this.state.user.faces + faces}));
+          return this.displayFaceBox(this.calculateFaceLocation(response))
+        }
+        else{
+          fetch('http://localhost:3001/image', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              id: this.state.user.id,
+              faces: response.outputs[0].data.regions.length
+            })
+          })
+          .then(res => res.json())
+          .then(faces => this.setState(Object.assign(this.state.user, {faces: faces})))
+          .catch(err => {
+            this.setState({loading: false});
+            return console.log("Error occurred.")
+          });
+          this.setState({loading: false});
+          return this.displayFaceBox(this.calculateFaceLocation(response))
+        }
+      }
+    })
+    .catch(err => {
+      this.setState({loading: false});
+      return console.log("An error occurred.")
+    });
   }
 
   onRouteChange = (route) => {
@@ -122,7 +138,7 @@ class App extends Component {
   }
 
   render() {
-    const {isSignedIn, image_url, array_of_boxes, route, user} = this.state;
+    const {isSignedIn, image_url, array_of_boxes, route, user, loading} = this.state;
     return (
       <div className="tc">
         <Particles className='particles'
@@ -132,9 +148,10 @@ class App extends Component {
         <div className='mainDiv'>
           {(route === 'home') ? 
               <div>
-              <Rank name={user.name} faces={user.faces}/>
+                <Rank name={user.name} faces={user.faces}/>
                 <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit}/>
-                <FaceRecognition image_url={image_url} array_of_boxes={array_of_boxes}/>
+                {loading ? <div className='center w-100 absolute z-max'><div className="spinner"></div></div> : null}
+                <div className={loading ? 'o-30' : ''}><FaceRecognition image_url={image_url} array_of_boxes={array_of_boxes}/></div>
               </div>
           : (route === 'signin' || route === 'signout') ?
               <SignIn onRouteChange={this.onRouteChange} loadUser={this.loadUser}/>
