@@ -5,7 +5,7 @@ import './Navigation.css'
 const Navigation = (props) => {
 	const {isSignedIn, onRouteChange} = props;
 	return(
-		<header className='z-max'>
+		<header className='z-max shadow-1'>
 			<Logo/>
 			<nav>
 				<ul id='navUl'>

@@ -4,6 +4,7 @@ import ImageLinkForm from '../Components/ImageLinkForm/ImageLinkForm';
 import Rank from '../Components/Rank/Rank';
 import FaceRecognition from '../Components/FaceRecognition/FaceRecognition';
 import SignIn from '../Components/SignIn/SignIn';
+import Footer from '../Components/Footer/Footer';
 import Register from '../Components/Register/Register';
 import Particles from 'react-particles-js';
 import './App.css';
@@ -162,6 +163,7 @@ class App extends Component {
             : <Register SERVER_URL={SERVER_URL} loadUser={this.loadUser}/>  
           }
         </div>
+        <Footer />
       </div>
     );
   }
