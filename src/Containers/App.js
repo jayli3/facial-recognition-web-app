@@ -85,7 +85,8 @@ class App extends Component {
 
     fetch(SERVER_URL + '/imageUrl', {
       method: 'post',
-      headers: {'Content-Type': 'application/json'
+      headers: {
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         input: this.state.input,
@@ -102,7 +103,8 @@ class App extends Component {
         else{
           fetch(SERVER_URL + '/image', {
             method: 'put',
-            headers: {'Content-Type': 'application/json'
+            headers: {
+              'Content-Type': 'application/json'
             },
             body: JSON.stringify({
               id: this.state.user.id,
