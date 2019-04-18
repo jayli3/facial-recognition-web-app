@@ -22,11 +22,11 @@ class Register extends React.Component {
 		this.setState({registerPassword: event.target.value});
 	}
 
-	onSubmissionRegister = () => {
+	onSubmissionRegister = (SERVER_URL) => {
 		if(this.state.registerEmail.length <= 0 || this.state.registerPassword <= 0 || this.state.registerName.length <= 0){
 			return
 		}
-		fetch('http://localhost:3001/register', {
+		fetch(SERVER_URL + '/register', {
 			method: 'post',
 			headers: {
 				'Content-Type': 'application/json'
@@ -82,7 +82,7 @@ class Register extends React.Component {
 				    </fieldset>
 				    <div className="">
 				      <input className="b ph3 br2 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Register"
-				      			onClick={this.onSubmissionRegister}/>
+				      			onClick={() => {this.onSubmissionRegister(this.props.SERVER_URL)}}/>
 				    </div>
 				  </div>
 				</main>

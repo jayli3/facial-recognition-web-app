@@ -9,6 +9,8 @@ import Particles from 'react-particles-js';
 import './App.css';
 import particlesOptions from './particlesjs-config';
 
+const SERVER_URL = 'https://serene-brushlands-92354.herokuapp.com';
+
 class App extends Component {
   constructor() {
     super();
@@ -81,7 +83,7 @@ class App extends Component {
     this.setState({image_url: this.state.input});
     this.setState({loading: true});
 
-    fetch('http://localhost:3001/imageUrl', {
+    fetch(SERVER_URL + '/imageUrl', {
       method: 'post',
       headers: {'Content-Type': 'application/json'
       },
@@ -98,7 +100,7 @@ class App extends Component {
           return this.displayFaceBox(this.calculateFaceLocation(response))
         }
         else{
-          fetch('http://localhost:3001/image', {
+          fetch(SERVER_URL + '/image', {
             method: 'put',
             headers: {'Content-Type': 'application/json'
             },
@@ -154,8 +156,8 @@ class App extends Component {
                 <div className={loading ? 'o-30' : ''}><FaceRecognition image_url={image_url} array_of_boxes={array_of_boxes}/></div>
               </div>
           : (route === 'signin' || route === 'signout') ?
-              <SignIn onRouteChange={this.onRouteChange} loadUser={this.loadUser}/>
-            : <Register loadUser={this.loadUser}/>  
+              <SignIn SERVER_URL={SERVER_URL} onRouteChange={this.onRouteChange} loadUser={this.loadUser}/>
+            : <Register SERVER_URL={SERVER_URL} loadUser={this.loadUser}/>  
           }
         </div>
       </div>
