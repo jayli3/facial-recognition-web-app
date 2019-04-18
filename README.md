@@ -3,19 +3,20 @@ Live: https://jayli3.github.io/facial-recognition-web-app/ <br>
 Server Source Code: https://github.com/jayli3/facial-recognition-server <br><br>
 Detects faces in an input image and puts a box around it.
 
+## Warning
+This app is just for demonstration purposes, code hasn't been tidied up, there's minimum validation in place and minimum security implementations.
+
 ## Libraries Used
 Tachyons<br>
 React Tilt<br>
 Particles.js<br>
 
-## Warning
-This app is just for demonstration purposes, code hasn't been tidied up, there's minimum validation in place and minimum security implementations.
-
 ### `API`
 Clarifai: https://clarifai.com/developer/guide/
 
 ## Server & Database
-Server & Database are hosted on Heroku.
+Server & Database are hosted on Heroku.<br>
+Source Code: https://github.com/jayli3/facial-recognition-server
 
 ##
 To deploy React onto GitHub, refer to: https://codeburst.io/deploy-react-to-github-pages-to-create-an-amazing-website-42d8b09cd4d
