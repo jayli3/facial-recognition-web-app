@@ -151,7 +151,7 @@ class App extends Component {
           params={particlesOptions} />
 
         <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/>
-        <div id='mainDiv h-100'>
+        <div id='mainDiv'>
           {(route === 'home') ? 
               <div>
                 <Rank name={user.name} faces={user.faces}/>
