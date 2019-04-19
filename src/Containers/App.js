@@ -122,6 +122,9 @@ class App extends Component {
           return this.displayFaceBox(this.calculateFaceLocation(response))
         }
       }
+      else{
+        this.setState({loading: false});
+      }
     })
     .catch(err => {
       this.setState({loading: false});
