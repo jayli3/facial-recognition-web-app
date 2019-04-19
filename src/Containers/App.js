@@ -145,12 +145,13 @@ class App extends Component {
   render() {
     const {isSignedIn, image_url, array_of_boxes, route, user, loading} = this.state;
     return (
-      <div className="tc">
+      <div className="tc min-vh-100 flex flex-column justify-between ph4">
+      <div>
         <Particles className='particles'
           params={particlesOptions} />
 
         <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/>
-        <div className='mainDiv'>
+        <div id='mainDiv h-100'>
           {(route === 'home') ? 
               <div>
                 <Rank name={user.name} faces={user.faces}/>
@@ -163,6 +164,7 @@ class App extends Component {
             : <Register SERVER_URL={SERVER_URL} loadUser={this.loadUser}/>  
           }
         </div>
+      </div>
         <Footer />
       </div>
     );
