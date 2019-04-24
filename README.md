@@ -28,7 +28,7 @@ To complete this without the hassel of worrying about CSS, I used a node package
 
 
 
-##NPM Packages Used:
+## NPM Packages Used:
 ```json
 "dependencies": {
     "react": "^16.8.6",
