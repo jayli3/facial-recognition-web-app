@@ -1,16 +1,16 @@
 {
-  "main.css": "/facial-recognition-web-app/static/css/main.09f1bca3.chunk.css",
-  "main.js": "/facial-recognition-web-app/static/js/main.4a585f3e.chunk.js",
-  "main.js.map": "/facial-recognition-web-app/static/js/main.4a585f3e.chunk.js.map",
+  "main.css": "/facial-recognition-web-app/static/css/main.16c08560.chunk.css",
+  "main.js": "/facial-recognition-web-app/static/js/main.681b5b58.chunk.js",
+  "main.js.map": "/facial-recognition-web-app/static/js/main.681b5b58.chunk.js.map",
   "runtime~main.js": "/facial-recognition-web-app/static/js/runtime~main.9a1e1aaf.js",
   "runtime~main.js.map": "/facial-recognition-web-app/static/js/runtime~main.9a1e1aaf.js.map",
-  "static/css/2.962d0d41.chunk.css": "/facial-recognition-web-app/static/css/2.962d0d41.chunk.css",
+  "static/css/2.604dff72.chunk.css": "/facial-recognition-web-app/static/css/2.604dff72.chunk.css",
   "static/js/2.871d40fc.chunk.js": "/facial-recognition-web-app/static/js/2.871d40fc.chunk.js",
   "static/js/2.871d40fc.chunk.js.map": "/facial-recognition-web-app/static/js/2.871d40fc.chunk.js.map",
   "index.html": "/facial-recognition-web-app/index.html",
-  "precache-manifest.87482dc9ac1d4d7dcc21ea2e20d0a440.js": "/facial-recognition-web-app/precache-manifest.87482dc9ac1d4d7dcc21ea2e20d0a440.js",
+  "precache-manifest.d90d2f8ddd7255365135c1f806d3cb94.js": "/facial-recognition-web-app/precache-manifest.d90d2f8ddd7255365135c1f806d3cb94.js",
   "service-worker.js": "/facial-recognition-web-app/service-worker.js",
-  "static/css/2.962d0d41.chunk.css.map": "/facial-recognition-web-app/static/css/2.962d0d41.chunk.css.map",
-  "static/css/main.09f1bca3.chunk.css.map": "/facial-recognition-web-app/static/css/main.09f1bca3.chunk.css.map",
+  "static/css/2.604dff72.chunk.css.map": "/facial-recognition-web-app/static/css/2.604dff72.chunk.css.map",
+  "static/css/main.16c08560.chunk.css.map": "/facial-recognition-web-app/static/css/main.16c08560.chunk.css.map",
   "static/media/logo.svg": "/facial-recognition-web-app/static/media/logo.83afed63.svg"
 }

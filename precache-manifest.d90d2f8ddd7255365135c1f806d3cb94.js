@@ -8,23 +8,23 @@ self.__precacheManifest = [
     "url": "/facial-recognition-web-app/static/js/runtime~main.9a1e1aaf.js"
   },
   {
-    "revision": "eb01aa6be34fbbc494c6",
-    "url": "/facial-recognition-web-app/static/js/main.4a585f3e.chunk.js"
+    "revision": "57837497ff78ece5fc97",
+    "url": "/facial-recognition-web-app/static/js/main.681b5b58.chunk.js"
   },
   {
-    "revision": "c2fcb3821ee1664bfa7e",
+    "revision": "e48d6d0e06243307dec0",
     "url": "/facial-recognition-web-app/static/js/2.871d40fc.chunk.js"
   },
   {
-    "revision": "eb01aa6be34fbbc494c6",
-    "url": "/facial-recognition-web-app/static/css/main.09f1bca3.chunk.css"
+    "revision": "57837497ff78ece5fc97",
+    "url": "/facial-recognition-web-app/static/css/main.16c08560.chunk.css"
   },
   {
-    "revision": "c2fcb3821ee1664bfa7e",
-    "url": "/facial-recognition-web-app/static/css/2.962d0d41.chunk.css"
+    "revision": "e48d6d0e06243307dec0",
+    "url": "/facial-recognition-web-app/static/css/2.604dff72.chunk.css"
   },
   {
-    "revision": "bb8fecdbe2703522983d45a1f74f500b",
+    "revision": "13fdf3e7ab23bf7682cf6377d6d73c64",
     "url": "/facial-recognition-web-app/index.html"
   }
 ];
