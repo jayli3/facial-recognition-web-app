@@ -19,7 +19,7 @@ const Footer = () => {
 
 	return(
 			<div className='relative w-100 flex justify-end white helvetica' style={style2}>
-				<a href='https://github.com/jayli3/facial-recognition-web-app' className='white link b flex items-center flex-row dim'>
+				<a href='https://github.com/jayli3n/facial-recognition-web-app' className='white link b flex items-center flex-row dim'>
 					<div style={style}></div>
 					<span>View on GitHub</span>
 				</a>

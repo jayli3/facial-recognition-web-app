@@ -2,7 +2,7 @@
   "name": "facial-recognition-web-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jayli3.github.io/facial-recognition-web-app/",
+  "homepage": "https://jayli3n.github.io/facial-recognition-web-app/",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
