@@ -5,7 +5,6 @@ Detects faces in an input image and put boxes around them.
 
 To complete this without the hassel of worrying about CSS, I used a node package `tachyons` toolkit to help with the styling.
 
-**Note: **
 - This is **Front-End only**, for Back-End source code, please [**click here**](https://github.com/jayli3n/facial-recognition-server "click here").
 - This app is just for demonstration purposes, code hasn&apos;t been tidied up, there&apos;s minimum validation in place and minimum security implementations.
 
